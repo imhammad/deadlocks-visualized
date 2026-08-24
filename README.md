@@ -8,6 +8,8 @@ https://github.com/user-attachments/assets/1fb5dd5f-15f6-4fc4-bebf-92173c42bffb
 
 </div>
 
+**Live site:** [https://aletheia-ashen.vercel.app/](https://imhammad.github.io/deadlocks-visualized/)
+
 ## Why I Built This
 Concepts like thread synchronization, race conditions, and mutex locks are often taught purely through theory. I wanted to take a notorious Computer Science problem (the Dining Philosophers problem) and bring it to life visually. This tool allows developers to actually watch a system crash due to high contention and then see exactly how modern operating systems resolve the issue.
 
