@@ -1,5 +1,6 @@
 import React from 'react';
 import { Play, RotateCcw, ShieldAlert } from 'lucide-react';
+import PhilosopherTable from './PhilosopherTable';
 
 export default function App() {
   return (
@@ -58,12 +59,11 @@ export default function App() {
         {/* Right Panel: The Table Stage */}
         <section className="flex-1 flex items-center justify-center bg-white border border-bauhaus-grey shadow-[8px_8px_0px_0px_rgba(45,55,72,1)] p-12 min-h-[500px] relative overflow-hidden">
           
-          {/* We will render our animated Framer Motion circle here in the next step! */}
-          <div className="w-64 h-64 rounded-full border-4 border-bauhaus-text flex items-center justify-center bg-bauhaus-bg/50">
-            <p className="font-mono text-bauhaus-text/50 font-bold uppercase tracking-widest text-sm">
-              [ Table Canvas ]
-            </p>
-          </div>
+        <section className="flex-1 flex items-center justify-center bg-white border border-bauhaus-grey shadow-[8px_8px_0px_0px_rgba(45,55,72,1)] p-12 min-h-[500px] relative overflow-hidden">
+          
+          <PhilosopherTable />
+
+        </section>
 
         </section>
       </main>
