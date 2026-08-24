@@ -1,16 +1,41 @@
-# React + Vite
+<div align="center">
+  
+  <video src="./demo.mp4" width="800" autoplay loop muted playsinline></video>
+  
+  # OS Concurrency: Dining Philosophers Visualized
+  
+  A high-performance, interactive visualizer demonstrating operating system deadlocks and resource allocation using Dijkstra's Semaphore.
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Why I Built This
+Concepts like thread synchronization, race conditions, and mutex locks are often taught purely through theory. I wanted to take a notorious Computer Science problem (the Dining Philosophers problem) and bring it to life visually. This tool allows developers to actually watch a system crash due to high contention and then see exactly how modern operating systems resolve the issue.
 
-Currently, two official plugins are available:
+## Understanding the Visualization
+The visual interface directly mirrors the architecture of a computer CPU and memory layout:
+* **The Circles (Philosophers):** These represent individual threads or processes running in an operating system.
+* **The Dashes (Forks):** These are shared resources, such as a database row or a block of memory. In OS terms, these act as Mutex Locks.
+* **Blue (Thinking):** The thread is executing background tasks and does not need shared resources.
+* **Yellow (Hungry):** The thread is waiting to acquire the necessary locks.
+* **Red (Eating):** The thread successfully acquired both adjacent locks and is executing its critical section.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## The Problem: Deadlock (Naive Algorithm)
+In the Naive algorithm, each thread follows a simple set of rules. They grab the left lock, and then they grab the right lock. Under heavy load (high contention), every single thread might grab its left lock simultaneously. Because no thread will release its left lock until it gets a right lock, the system freezes permanently. This is a classic Deadlock.
 
-## React Compiler
+## The Solution: Dijkstra's Semaphore
+To fix this, the visualizer implements an asymmetric resource hierarchy (Dijkstra's solution). By forcing just one thread to pick up its locks in the reverse order (right lock first, then left), we break the circular wait. The system might experience brief traffic jams, but a permanent deadlock becomes mathematically impossible.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack & Implementation
+* **React & Vite:** Provides a lightning-fast development environment and robust state management for the simulation loop.
+* **Framer Motion:** Handles the fluid, physics-based animations to clearly show state transitions.
+* **Tailwind CSS v4:** Utilized for a clean, Bauhaus-inspired geometric UI (avoiding standard dark themes for a crisp, professional aesthetic).
+* **Vanilla JavaScript:** Powers the core simulation engine by managing probability distributions and atomic operations per tick.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run It Locally
+1. Clone the repository:
+   `git clone https://github.com/YOUR_USERNAME/deadlocks-visualized.git`
+2. Navigate into the directory:
+   `cd deadlocks-visualized`
+3. Install the dependencies:
+   `npm install`
+4. Start the development server:
+   `npm run dev`
