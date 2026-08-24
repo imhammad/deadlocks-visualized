@@ -1,10 +1,11 @@
 <div align="center">
   
-  <video src="./demo.mp4" width="800" autoplay loop muted playsinline></video>
-  
   # OS Concurrency: Dining Philosophers Visualized
-  
+
   A high-performance, interactive visualizer demonstrating operating system deadlocks and resource allocation using Dijkstra's Semaphore.
+
+https://github.com/user-attachments/assets/1fb5dd5f-15f6-4fc4-bebf-92173c42bffb
+
 </div>
 
 ## Why I Built This
@@ -32,7 +33,7 @@ To fix this, the visualizer implements an asymmetric resource hierarchy (Dijkstr
 
 ## Run It Locally
 1. Clone the repository:
-   `git clone https://github.com/YOUR_USERNAME/deadlocks-visualized.git`
+   `git clone https://github.com/imhammad/deadlocks-visualized.git`
 2. Navigate into the directory:
    `cd deadlocks-visualized`
 3. Install the dependencies:
