@@ -1,10 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-bauhaus-bg: #F5F5F0;
+  --color-bauhaus-text: #2D3748;
+  --color-bauhaus-red: #E04733;
+  --color-bauhaus-yellow: #EAB308;
+  --color-bauhaus-blue: #1E3A8A;
+  --color-bauhaus-grey: #D1D5DB;
+}
 
 body {
-  background-color: #F5F5F0; /* bauhaus-bg */
-  color: #2D3748;
+  background-color: var(--color-bauhaus-bg);
+  color: var(--color-bauhaus-text);
   margin: 0;
   font-family: 'Inter', -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
