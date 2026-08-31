@@ -23,7 +23,7 @@ The visual interface directly mirrors the architecture of a computer CPU and mem
 In the Naive algorithm, each thread follows a simple set of rules. They grab the left lock, and then they grab the right lock. Under heavy load (high contention), every single thread might grab its left lock simultaneously. Because no thread will release its left lock until it gets a right lock, the system freezes permanently. This is a classic Deadlock.
 
 ## The Solution: Dijkstra's Semaphore
-To fix this, the visualizer implements an asymmetric resource hierarchy (Dijkstra's solution). By forcing just one thread to pick up its locks in the reverse order (right lock first, then left), we break the circular wait. The system might experience brief traffic jams, but a permanent deadlock becomes mathematically impossible.
+To fix this, the visualizer implements an asymmetric resource hierarchy (Dijkstra's solution). By forcing just one thread to pick up its locks in the reverse order (right lock first, then left), we break the circular wait. The system might experience brief traffic jams, but the permanent deadlock becomes mathematically impossible.
 
 ## Tech Stack & Implementation
 * **React & Vite:** Provides a lightning-fast development environment and robust state management for the simulation loop.
